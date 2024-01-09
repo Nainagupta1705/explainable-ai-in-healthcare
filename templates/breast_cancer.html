@@ -1,0 +1,205 @@
+{% extends 'main.html' %}
+{% block content %}
+<style>
+body {
+    font-family: Cambria;
+    height: 100%;
+    background-image: linear-gradient(#740354, #e67ec5);
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+</style>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <center><h1 style="color:white;">Breast Cancer Detection</h1></center>
+        <div class="card card-body" style="border: 1px solid black; background-color: #f4a8f4">
+            <form class="form-horizontal" action="{{ url_for('predictPage') }}" method="POST">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black; background-color: #f0d0ff" class="form-control" type="text" name="Mean Radius" placeholder="Mean Radius"required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black; background-color: #f0d0ff" class="form-control" type="text" name="Mean Texture" placeholder="Mean Texture"required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black; background-color: #f0d0ff" class="form-control" type="text" name="Mean Perimeter" placeholder="Mean Perimeter"required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black; background-color: #f0d0ff" class="form-control" type="text" name="Mean Area" placeholder="Mean Area"required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black; background-color: #f0d0ff" class="form-control" type="text" name="Mean Smoothness" placeholder="Mean Smoothness"required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black; background-color: #f0d0ff" class="form-control" type="text" name="Mean Compactness" placeholder="Mean Compactness"required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black; background-color: #f0d0ff" class="form-control" type="text" name="Mean Concavity" placeholder="Mean Concavity"required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black; background-color: #f0d0ff" class="form-control" type="text" name="Mean Concave Points" placeholder="Mean Concave Points"required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black; background-color: #f0d0ff" class="form-control" type="text" name="Mean Symmetry" placeholder="Mean Symmetry"required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black; background-color: #f0d0ff" class="form-control" type="text" name="Mean Fractal Dimension" placeholder="Mean Fractal Dimension"required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black; background-color: #f0d0ff" class="form-control" type="text" name="Radius Error" placeholder="Radius Error"required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black; background-color: #f0d0ff" class="form-control" type="text" name="Texture Error" placeholder="Texture Error"required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black; background-color: #f0d0ff" class="form-control" type="text" name="Perimeter Error" placeholder="Perimeter Error"required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black; background-color: #f0d0ff" class="form-control" type="text" name="Area Error" placeholder="Area Error"required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black; background-color: #f0d0ff" class="form-control" type="text" name="Smoothness Error" placeholder="Smoothness Error"required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black; background-color: #f0d0ff" class="form-control" type="text" name="Compactness Error" placeholder="Compactness Error"required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black; background-color: #f0d0ff" class="form-control" type="text" name="Concavity Error" placeholder="Concavity Error"required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black; background-color: #f0d0ff" class="form-control" type="text" name="Concave Points Error" placeholder="Concave Points Error"required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black; background-color: #f0d0ff" class="form-control" type="text" name="Symmetry Error" placeholder="Symmetry Error"required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black; background-color: #f0d0ff" class="form-control" type="text" name="Fractal Dimension Error" placeholder="Fractal Dimension Error"required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black; background-color: #f0d0ff" class="form-control" type="text" name="Worst Radius" placeholder="Worst Radius"required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black; background-color: #f0d0ff" class="form-control" type="text" name="Worst Texture" placeholder="Worst Texture"required>
+                        </div>
+                    </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <input style="border: 1px solid black; background-color: #f0d0ff" class="form-control" type="text" name="Worst Perimeter" placeholder="Worst Perimeter"required>
+                        </div>
+                    </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <input style="border: 1px solid black; background-color: #f0d0ff" class="form-control" type="text" name="Worst Area" placeholder="Worst Area"required>
+                        </div>
+                    </div>
+                </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <input style="border: 1px solid black; background-color: #f0d0ff" class="form-control" type="text" name="Worst Smoothness" placeholder="Worst Smoothness"required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <input style="border: 1px solid black; background-color: #f0d0ff" class="form-control" type="text" name="Worst Concavity" placeholder="Worst Concavity"required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <input style="border: 1px solid black; background-color: #f0d0ff" class="form-control" type="text" name="Worst Concave Points" placeholder="Worst Concave Points"required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <input style="border: 1px solid black; background-color: #f0d0ff" class="form-control" type="text" name="Worst Symmetry" placeholder="Worst Symmetry"required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <input style="border: 1px solid black; background-color: #f0d0ff" class="form-control" type="text" name="Worst Fractal Dimension" placeholder="Worst Fractal Dimension"required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <input style="border: 1px solid black; background-color: #f0d0ff" class="form-control" type="text" name="Label" placeholder="Label"required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <input style="background-color: #740363" type="submit" class="btn btn-info btn-block" value="Predict">
+            </form>
+        </div>
+    </div>
+    
+
+{% endblock %}

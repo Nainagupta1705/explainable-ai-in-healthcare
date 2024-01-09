@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>BreaCare</title>
+  <meta property="og:title" content="Creative Agency Page" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta property="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/x-icon" href="static/favicon.ico">
+  <style data-tag="reset-style-sheet">
+    html {
+      line-height: 1.15;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+      border-width: 0;
+      border-style: solid;
+    }
+
+    p,
+    li,
+    ul,
+    pre,
+    div,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    figure,
+    blockquote,
+    figcaption {
+      margin: 0;
+      padding: 0;
+    }
+
+    button {
+      background-color: transparent;
+    }
+
+    button,
+    input,
+    optgroup,
+    select,
+    textarea {
+      font-family: inherit;
+      font-size: 100%;
+      line-height: 1.15;
+      margin: 0;
+    }
+
+    button,
+    select {
+      text-transform: none;
+    }
+
+    button,
+    [type="button"],
+    [type="reset"],
+    [type="submit"] {
+      appearance: button;
+    }
+
+    button::-moz-focus-inner,
+    [type="button"]::-moz-focus-inner,
+    [type="reset"]::-moz-focus-inner,
+    [type="submit"]::-moz-focus-inner {
+      border-style: none;
+      padding: 0;
+    }
+
+    button:-moz-focus,
+    [type="button"]:-moz-focus,
+    [type="reset"]:-moz-focus,
+    [type="submit"]:-moz-focus {
+      outline: 1px dotted ButtonText;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: inherit;
+    }
+
+    input {
+      padding: 2px 4px;
+    }
+
+    img {
+      display: block;
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+  </style>
+  <style data-tag="default-style-sheet">
+    html {
+      font-family: DM Sans;
+      font-size: 16px;
+    }
+
+    body {
+      font-weight: 400;
+      font-style: normal;
+      text-decoration: none;
+      text-transform: undefined;
+      letter-spacing: normal;
+      line-height: 1.3;
+      color: var(--dl-color-scheme-darkblue);
+      background-color: var(--dl-color-scheme-white);
+
+    }
+  </style>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&amp;display=swap"
+    data-tag="font" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&amp;display=swap"
+    data-tag="font" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital,wght@0,400;1,400&amp;display=swap"
+    data-tag="font" />
+  <style>
+    .services-card:hover>div {
+      background-color: #fff
+    }
+  </style>
+</head>
+
+<body>
+  <link rel="stylesheet" href="static\style.css" />
+  <div>
+    <link href="static\index.css" rel="stylesheet" />
+
+    <div class="home-container">
+      <header data-role="Header" class="navigation-header navigation-root-class-name">
+        <img alt="logo" src="static\logo1.png" />
+        <div class="navigation-max-width">
+          <div class="navigation-container">
+            <div class="navigation-container1">
+              <div class="navigation-nav"></div>
+            </div>
+          </div>
+          <nav class="navigation-links-nav navigation-links-root-class-name17">
+            <span class="navigation-links-text Navigation-Link">
+              <a href="{{ url_for('home') }}">
+                <span>Home</span></a>
+            </span>
+            <span class="navigation-links-text1 Navigation-Link">
+              <a href="{{ url_for('cancerPage') }}">
+                <span>Breast Cancer Detection By Data</span></a>
+            </span>
+            <span class="navigation-links-text2 Navigation-Link">
+              <a href="{{ url_for('breastcancer_iPage') }}">
+                <span>Breast Cancer Detection By Images</span></a>
+            </span>
+            <span class="navigation-links-text2 Navigation-Link">
+              <a href="{{ url_for('heartPage') }}">
+                <span>Heart Disease Detection</span></a>
+            </span>
+          </nav>
+
+          <div data-role="BurgerMenu" class="navigation-burger-menu">
+            <svg viewBox="0 0 1024 1024" class="navigation-icon">
+              <path
+                d="M128 554.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 298.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 810.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667z">
+              </path>
+            </svg>
+          </div>
+
+          <div data-role="MobileMenu" class="mobile-menu">
+            <div class="navigation-nav1">
+              <div class="navigation-container2">
+                <img alt="image" src="static\logo1.png" />
+                <div data-role="CloseMobileMenu" class="navigation-close-mobile-menu">
+                  <svg viewBox="0 0 1024 1024" class="navigation-icon2">
+                    <path
+                      d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z">
+                    </path>
+                  </svg>
+                </div>
+              </div>
+
+              <nav class="navigation-links-nav navigation-links-root-class-name18">
+                <span class="navigation-links-text Navigation-Link">
+                  <a href="{{ url_for('home') }}">
+                    <span>Home</span></a>
+
+                </span>
+                <span class="navigation-links-text1 Navigation-Link">
+                  <a href="{{ url_for('cancerPage') }}">
+                    <span>Breast Cancer Detection By Data</span></a>
+                </span>
+                <span class="navigation-links-text2 Navigation-Link">
+                  <a href="{{ url_for('breastcancer_iPage') }}">
+                    <span>Breast Cancer Detection By Images</span></a>
+                </span>
+                <span class="navigation-links-text2 Navigation-Link">
+                  <a href="{{ url_for('heartPage') }}">
+                    <span>Heart Disease Detection</span></a>
+                </span>
+              </nav>
+              <button class="button-secondary button button-md">
+                <span>Get in touch</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="home-main">
+        <div class="home-container1"></div>
+        <div class="home-services section-container">
+          <div class="home-max-width max-content-container">
+            <div class="home-heading-container">
+              <div class="home-text-container">
+                <span class="home-text">our services</span>
+                <h2 class="home-text01">
+                  <span>We provide a wide range of</span>
+                  <br />
+                  <span>creative solutions</span>
+                </h2>
+              </div>
+              <div class="home-controls">
+                <button class="control-btn">
+                  <svg viewBox="0 0 1024 1024" class="home-icon">
+                    <path
+                      d="M402.746 877.254l-320-320c-24.994-24.992-24.994-65.516 0-90.51l320-320c24.994-24.992 65.516-24.992 90.51 0 24.994 24.994 24.994 65.516 0 90.51l-210.746 210.746h613.49c35.346 0 64 28.654 64 64s-28.654 64-64 64h-613.49l210.746 210.746c12.496 12.496 18.744 28.876 18.744 45.254s-6.248 32.758-18.744 45.254c-24.994 24.994-65.516 24.994-90.51 0z">
+                    </path>
+                  </svg>
+                </button>
+                <button class="control-btn">
+                  <svg viewBox="0 0 1024 1024" class="home-icon2">
+                    <path
+                      d="M621.254 877.254l320-320c24.994-24.992 24.994-65.516 0-90.51l-320-320c-24.994-24.992-65.516-24.992-90.51 0-24.994 24.994-24.994 65.516 0 90.51l210.746 210.746h-613.49c-35.346 0-64 28.654-64 64s28.654 64 64 64h613.49l-210.746 210.746c-12.496 12.496-18.744 28.876-18.744 45.254s6.248 32.758 18.744 45.254c24.994 24.994 65.516 24.994 90.51 0z">
+                    </path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="home-cards-container">
+              <div class="services-card">
+                <div class="services-card-container">
+                  <a href="{{ url_for('cancerPage') }}">
+                    <img alt="image" src="static\bg.jpeg" class="services-card-image" />
+                  </a>
+                </div>
+                <span class="services-card-text">
+                  <a href="{{ url_for('cancerPage') }}">
+                    <span>Breast Cancer Detection By Data</span></a>
+                </span>
+                <span class="services-card-text1">
+                  <span><a href="{{ url_for('cancerPage') }}">
+                      Check are you disease free with the help of figures and what are the reasons behind it.</a>
+                  </span>
+                </span>
+                <span class="services-card-text2">
+                  <span>Learn More</span>
+                </span>
+              </div>
+              <div class="services-card">
+                <div class="services-card-container">
+                  <a href="{{ url_for('breastcancer_iPage') }}">
+                    <img alt="image" src="static\bg1.png" class="services-card-image" />
+                  </a>
+                </div>
+                <span class="services-card-text">
+                  <a href="{{ url_for('breastcancer_iPage') }}">
+                    <span>Breast Cancer Detection By Images</span></a>
+                </span>
+                <span class="services-card-text1">
+                  <span><a href="{{ url_for('breastcancer_iPage') }}">
+                      Check are you disease free with the help of images and what are the reasons behind it.</a>
+                  </span>
+                </span>
+                <span class="services-card-text2">
+                  <span>Learn More</span>
+                </span>
+              </div>
+
+              <div class="services-card">
+                <div class="services-card-container">
+                  <a href="{{ url_for('heartPage') }}">
+                    <img alt="image" src="static\file.jpg" class="services-card-image" />
+                  </a>
+                </div>
+                <span class="services-card-text">
+                  <a href="{{ url_for('heartPage') }}">
+                    <span>Heart Disease Detection</span></a>
+                </span>
+                <span class="services-card-text1">
+                  <span><a href="{{ url_for('heartPage') }}">
+                      Check are you disease free with the help of data and what are the reasons behind it.</a>
+                  </span>
+                </span>
+                <span class="services-card-text2">
+                  <span>Learn More</span>
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="home-portofolio section-container">
+          <h2 class="home-text05">
+            <span class="Heading2">Explore Our</span>
+            <span class="home-text07">Portfolio</span>
+          </h2>
+          <span class="home-text08">Our Work</span>
+          <div class="home-text-container1">
+            <span class="home-text09">
+              This website&nbsp; provides all in one services on a single
+              platform
+            </span>
+          </div>
+        </div>
+        <div class="home-about section-container">
+          <div class="home-container2">
+            <div class="home-text-container2">
+              <span class="home-text10">About Us</span>
+              <h2 class="home-text11">
+                We provide the best hospital services&nbsp;
+              </h2>
+              <span class="home-text12">
+                We are a full-service digital hospital service agency.
+              </span>
+              <div class="home-checklist">
+                <div class="home-check-item">
+                  <svg viewBox="0 0 1024 1024" class="home-icon4">
+                    <path d="M384 690l452-452 60 60-512 512-238-238 60-60z"></path>
+                  </svg>
+                  <span class="home-text13">
+                    Quality services and support all time
+                  </span>
+                </div>
+                <div class="home-check-item1">
+                  <svg viewBox="0 0 1024 1024" class="home-icon6">
+                    <path d="M384 690l452-452 60 60-512 512-238-238 60-60z"></path>
+                  </svg>
+                  <span class="home-text14">
+                    Long-term strategy development
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="home-max-width1 max-content-container">
+            <div class="home-image-container"></div>
+          </div>
+        </div>
+        <div class="home-process section-container">
+          <div class="home-max-width2 max-content-container">
+            <span class="home-text15">Our process</span>
+            <h2 class="home-text16 Heading2">
+              <span>We provide three simple processes.</span>
+              <br />
+              <span>Take a look.</span>
+            </h2>
+            <div class="home-step">
+              <span class="home-text20">01</span>
+              <div class="home-container3">
+                <span class="home-text21">
+                  Checking the Breast Cancer With the Help of Data
+                </span>
+                <span class="home-text22">
+                  This platform provides the detection of breast cancer based
+                  on the stats. Also provides the cause which may be causing
+                  the cancer in the breast.
+                </span>
+              </div>
+            </div>
+            <div class="home-step1">
+              <span class="home-text23">02</span>
+              <div class="home-container4">
+                <span class="home-text24">
+                  Checking the Breast Cancer With the Help of Images&nbsp;
+                </span>
+                <span class="home-text25">
+                  This platform provides the detection of breast cancer based
+                  on the images. Also provides the cause which may be causing
+                  the cancer in the breast.
+                </span>
+              </div>
+            </div>
+
+            <div class="home-step1">
+              <span class="home-text23">03</span>
+              <div class="home-container4">
+                <span class="home-text24">
+                  Checking the Heart Disease With the Help of Data&nbsp;
+                </span>
+                <span class="home-text25">
+                  This platform provides the detection of heart disease based
+                  on the data. Also provides the cause which may be causing
+                  the disease in the heart.
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="home-banner section-container">
+          <div class="home-max-width3 max-content-container">
+            <span class="home-text29">What Are You Waiting?</span>
+            <h2 class="home-text30 Heading2">
+              <span>Let’s Collaborate!</span>
+            </h2>
+            <span class="home-text32">
+              Let us join hands and take the initiative to the do this
+              collaboration together and provide the best service available to
+              the user.
+            </span>
+            <button class="home-primary button-lg button-secondary-white button">
+              Contact Us
+            </button>
+          </div>
+        </div>
+      </main>
+      <div class="section-container">
+        <div class="max-content-container">
+          <div class="home-top-part">
+            <div class="home-links-container">
+              <div class="home-contact-container">
+                <span class="home-text33">Contact Us</span>
+                <span class="home-text34">
+                  Jaypee Greens Internal Road, Noida, Sector 128, Noida,
+                  Uttar Pradesh 201304
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="home-separator"></div>
+        <footer class="home-max-width5 max-content-container">
+          <img alt="image" src="static\logo1.png" class="home-image" />
+        </footer>
+      </div>
+    </div>
+  </div>
+  <script src="https://unpkg.com/@teleporthq/teleport-custom-scripts"></script>
+  <script>
+    window.onload = () => {
+      const runAllScripts = () => {
+        initializeAllSliders();
+      };
+
+      const listenForUrlChanges = () => {
+        let url = location.href;
+        document.body.addEventListener(
+          "click",
+          () => {
+            requestAnimationFrame(() => {
+              if (url !== location.href) {
+                runAllScripts();
+                url = location.href;
+              }
+            });
+          },
+          true
+        );
+      };
+
+      const initializeAllSliders = () => {
+        const allSliders = document.querySelectorAll('[data-type="slider"]');
+        allSliders.forEach((slider) => {
+          initializeSlider(slider);
+        });
+      };
+
+      const initializeSlider = (slider) => {
+        const slides = slider.querySelectorAll('[data-type="slide"]');
+        const middle = Math.ceil(slides.length / 2);
+        let currentSlide = middle;
+
+        const nextSlideBtns = document.querySelectorAll(
+          '[data-action="nextSlide"]'
+        );
+        const previousSlideBtns = document.querySelectorAll(
+          '[data-action="previousSlide"]'
+        );
+
+        const changeSlide = (slideIndex, action) => {
+          currentSlide = slideIndex;
+
+          switch (action) {
+            case "next":
+              slideIndex === slides.length
+                ? (currentSlide = 1)
+                : currentSlide++;
+              break;
+            case "previous":
+              slideIndex === 1
+                ? (currentSlide = slides.length)
+                : currentSlide--;
+          }
+
+          const slide = slides[0];
+          if (!slide) {
+            console.error("No slides present");
+            return;
+          }
+          const style = window.getComputedStyle(slide);
+          slideWidth =
+            parseInt(style.width) +
+            parseInt(style.marginLeft) +
+            parseInt(style.marginRight);
+          const transformValue = -slideWidth * (currentSlide - middle);
+
+          slider.style.transform = `translateX(${transformValue}px)`;
+        };
+
+        previousSlideBtns.forEach((btn) => {
+          btn.addEventListener("click", () =>
+            changeSlide(currentSlide, "previous")
+          );
+        });
+
+        nextSlideBtns.forEach((btn) => {
+          btn.addEventListener("click", () =>
+            changeSlide(currentSlide, "next")
+          );
+        });
+      };
+
+      runAllScripts();
+    };
+  </script>
+</body>
+
+</html>

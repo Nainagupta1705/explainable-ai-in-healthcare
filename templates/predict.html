@@ -1,0 +1,31 @@
+{% extends 'main.html' %}
+{% block content %}
+<style>
+body {
+    font-family: Cambria;
+    height: 100%;
+    background-image: linear-gradient(#74035f, #e67edd);
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+</style>
+    <div class="row"  style="margin-bottom: 477px;">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            {% if pred == 1  %}
+            <div><center><img src="static\time-matters-patient-healthcare-decisions.gif" alt="suffering Image" height="300px" width="500px"></center></div>
+                <div class="card card-body alert alert-danger"><center>POSITIVE. The patient might have the disease.</center></div>
+            {% else %}
+            <div><center><img src="static\21762ed7310f9816e93856b2ac654258.gif" alt="Happy Image" height="300px" width="500px"></center></div>
+                <div class="card card-body alert alert-success"><center>NEGATIVE. The patient is healthy.</center></div>
+            {% endif %}
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4"><a href="{{ url_for('home') }}" class="btn btn-block btn-primary" style="background-color: #740361">Back to Home</a></div>
+                <div class="col-md-4"></div>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+{% endblock %}
